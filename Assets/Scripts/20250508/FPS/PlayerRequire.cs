@@ -7,7 +7,7 @@ public class PlayerRequire : MonoBehaviour
     [SerializeField] LayerMask EnmyLayer;
     public Transform player;
     public Transform enemytarget;
-    public Camera camera;
+    public UnityEngine.Camera camera;
 
     [Range(1f, 5f)] public float extend = 1.5f;
 
