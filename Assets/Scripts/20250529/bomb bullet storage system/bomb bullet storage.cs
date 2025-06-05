@@ -38,17 +38,6 @@ public class bombbulletstorage : MonoBehaviour
         transform.position = DeCastIjau(points, time);
     }
 
-    void Bullet()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-           for(int i = 0; i > 9; i++)
-            {
-
-            }
-        }
-    }
-
     void GenerateRandomControlPoints()
     {
         Vector2 rand1 = Random.insideUnitCircle * p1Radius;
@@ -59,8 +48,6 @@ public class bombbulletstorage : MonoBehaviour
         p2 = p3.position + new Vector3(rand2.x, 0f, rand2.y);
         p2.y += p2Height;
     }
-
-
 
     Vector3 DeCastIjau(List<Vector3> p, float t)
     {
