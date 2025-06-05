@@ -7,11 +7,21 @@ public class Playerbool : MonoBehaviour
     public Transform playerBool01;
     public Transform playerBool02;
 
+    public Vector3 tunplayer01PO;
+    public Vector3 tunplayer02PO;
+
     public float forcePower = 10;
     public float MaxPower = 20;
     public int score = 0;
     private Rigidbody rb;
     [SerializeField] float speed;
+
+    private void Start()
+    {
+        tunplayer01PO = playerBool01.position;
+        tunplayer02PO = playerBool02.position;
+        Debug.Log("플레이어 1번 턴 입니다.");
+    }
 
     private void FixedUpdate()
     {
@@ -19,7 +29,7 @@ public class Playerbool : MonoBehaviour
         {
             if(forcePower < MaxPower)
             {
-                forcePower ++;
+                forcePower++;
             } 
         }
         else
@@ -29,12 +39,11 @@ public class Playerbool : MonoBehaviour
        
     }
 
+  
+
     // Update is called once per frame
     void Update()
-    {
-        Vector3 tunplayer01PO = playerBool01.position;
-        Vector3 tunplayer02PO = playerBool02.position;
-
+    { 
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -46,14 +55,15 @@ public class Playerbool : MonoBehaviour
                 if(rb != null)
                 { 
                     rb.AddForce(Vector3.forward * forcePower, ForceMode.Impulse);
+                    SaveBoolPoint();
                 }
             }
         }
-
-      
     }
-    void TunCH()
-    {
 
+    void SaveBoolPoint()
+    {
+         tunplayer01PO = playerBool01.position;
+         tunplayer02PO = playerBool02.position;
     }
 }
