@@ -6,15 +6,11 @@ public class Gun : MonoBehaviour
     public GameObject prefab;
     public Transform spawnPoint;
     public int bullectCount;
-    public float rotationSpeed = 1; 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButton(0))
         {
-            for(int i = 0; i < bullectCount; i++)
-            {
-                GameObject newObject = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
-            }
+            Instantiate(prefab, Vector3.zero, Quaternion.identity);
         }
     }
 }
